@@ -1,6 +1,5 @@
 package de.tzimom.discordbot
 
-import de.tzimom.discordbot.audio.AudioManager
 import de.tzimom.discordbot.config.BotConfig
 import de.tzimom.discordbot.command.CommandManager
 import de.tzimom.discordbot.eventhandler.MessageReceivedListener
