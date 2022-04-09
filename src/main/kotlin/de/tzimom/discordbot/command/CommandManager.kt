@@ -2,7 +2,7 @@ package de.tzimom.discordbot.command
 
 import de.tzimom.discordbot.command.executor.*
 import de.tzimom.discordbot.exception.BotException
-import de.tzimom.discordbot.settings.SettingsManager
+import de.tzimom.discordbot.settings.GuildSettingsManager
 import de.tzimom.discordbot.logging.FormattedChannelLogger
 import kotlinx.coroutines.runBlocking
 import net.dv8tion.jda.api.entities.Member
@@ -11,7 +11,7 @@ import net.dv8tion.jda.api.exceptions.PermissionException
 
 import java.util.regex.Pattern
 
-class CommandManager(private val settingsManager: SettingsManager) : CommandDispatcher {
+class CommandManager(private val guildSettingsManager: GuildSettingsManager) : CommandDispatcher {
     private val commands = listOf(
         JoinCommand(),
         LeaveCommand(),
@@ -28,7 +28,7 @@ class CommandManager(private val settingsManager: SettingsManager) : CommandDisp
     )
 
     override fun parseCommand(sender: Member, channel: MessageChannel, message: String): CommandContext? {
-        val prefix = settingsManager[sender.guild].prefix
+        val prefix = guildSettingsManager[sender.guild].prefix
 
         if (!message.startsWith(prefix)) return null
 

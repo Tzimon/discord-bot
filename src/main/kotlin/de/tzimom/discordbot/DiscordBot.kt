@@ -3,15 +3,15 @@ package de.tzimom.discordbot
 import de.tzimom.discordbot.config.BotConfig
 import de.tzimom.discordbot.command.CommandManager
 import de.tzimom.discordbot.eventhandler.MessageReceivedListener
-import de.tzimom.discordbot.settings.SettingsManager
+import de.tzimom.discordbot.settings.GuildSettingsManager
 import net.dv8tion.jda.api.JDA
 import net.dv8tion.jda.api.JDABuilder
 import net.dv8tion.jda.api.utils.cache.CacheFlag
 
 class DiscordBot(jda: JDA, botConfig: BotConfig) {
-    private val settingsManager = SettingsManager(botConfig.defaultSettingsGenerator)
+    private val guildSettingsManager = GuildSettingsManager(botConfig.defaultGuildSettings)
 
-    private val commandManager = CommandManager(settingsManager)
+    private val commandManager = CommandManager(guildSettingsManager)
 
     init {
         jda.addEventListener(MessageReceivedListener(commandManager))

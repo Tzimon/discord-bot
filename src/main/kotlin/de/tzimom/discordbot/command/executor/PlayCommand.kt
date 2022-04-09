@@ -18,6 +18,8 @@ class PlayCommand : CommandExecutor {
     override suspend fun execute(member: Member, label: String, args: List<String>, logger: ChannelLogger) {
         if (args.isEmpty()) throw InvalidSyntaxException()
 
+        AudioManager.joinMember(member)
+
         val query = args.joinToString(" ")
         logger.sendMessage("🎵 Searching 🔎 `$query`")
 
