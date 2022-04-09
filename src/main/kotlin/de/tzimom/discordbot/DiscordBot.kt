@@ -8,8 +8,8 @@ import net.dv8tion.jda.api.JDA
 import net.dv8tion.jda.api.JDABuilder
 import net.dv8tion.jda.api.utils.cache.CacheFlag
 
-class DiscordBot(jda: JDA, botConfig: BotConfig) {
-    private val guildSettingsManager = GuildSettingsManager(botConfig.defaultGuildSettings)
+class DiscordBot(jda: JDA, config: BotConfig) {
+    private val guildSettingsManager = GuildSettingsManager(config.defaultGuildSettings)
 
     private val commandManager = CommandManager(guildSettingsManager)
 
@@ -18,7 +18,7 @@ class DiscordBot(jda: JDA, botConfig: BotConfig) {
     }
 
     companion object {
-        fun launch(token: String, botConfig: BotConfig): DiscordBot {
+        fun launch(token: String, config: BotConfig): DiscordBot {
             val builder = JDABuilder.createDefault(token)
 
             builder.disableCache(
@@ -34,11 +34,11 @@ class DiscordBot(jda: JDA, botConfig: BotConfig) {
                 CacheFlag.VOICE_STATE
             )
 
-            builder.setActivity(botConfig.activity)
+            builder.setActivity(config.activity)
 
             val jda = builder.build()
 
-            return DiscordBot(jda, botConfig)
+            return DiscordBot(jda, config)
         }
     }
 }

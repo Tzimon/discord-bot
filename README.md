@@ -12,8 +12,12 @@ Example:
 ```kotlin
 fun main(args: Array<String>) {
     DiscordBot.launch(
-        args.first(),
-        BotConfig(null) { GuildSettings("!") }
+        args[0],
+        BotConfig(
+            OnlineStatus.ONLINE,
+            null,
+            GuildSettings("!")
+        )
     )
 }
 ```
