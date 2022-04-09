@@ -5,7 +5,8 @@ import java.time.Duration
 
 object FormattingUtils {
     fun formatTrackDuration(duration: Long) = Duration.ofMillis(duration).run {
-        "%02d:%02d:%02d".format(toHoursPart(), toMinutesPart(), toSecondsPart())
+        if (toHours() > 0) "%02d:%02d:%02d".format(toHours(), toMinutesPart(), toSecondsPart())
+        else "%02d:%02d".format(toMinutesPart(), toSecondsPart())
     }
 
     fun formatTrackAsText(track: AudioTrackInfo) = """

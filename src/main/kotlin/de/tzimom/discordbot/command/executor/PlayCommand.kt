@@ -7,9 +7,6 @@ import de.tzimom.discordbot.logging.ChannelLogger
 import de.tzimom.discordbot.util.FormattingUtils
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.entities.Member
-import java.time.Duration
-import java.time.OffsetTime
-import java.time.format.DateTimeFormatter
 
 class PlayCommand : CommandExecutor {
     override val name = "play"
