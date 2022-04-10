@@ -7,14 +7,35 @@
     <artifactId>mainModule</artifactId>
 
     <groupId>de.tzimom</groupId>
-    <version>1.0.1</version>
+    <version>1.0.0</version>
     <packaging>pom</packaging>
 
     <name>discord-bot</name>
+    <description>A small library for dependency injection in kotlin</description>
+    <url>https://github.com/tzimon/kotlin-dependency-injection</url>
 
     <properties>
         <kotlin.version>1.6.20</kotlin.version>
     </properties>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Tzimom</name>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/tzimon/kotlin-dependency-injection.git</connection>
+        <developerConnection>scm:git:ssh://github.com:tzimon/kotlin-dependency-injection.git</developerConnection>
+        <url>https://github.com/tzimon/kotlin-dependency-injection</url>
+    </scm>
 
     <repositories>
         <repository>
